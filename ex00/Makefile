@@ -12,7 +12,7 @@
 
 NAME = main
 
-SRC = Animal.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp Dog.cpp main.cpp
+SRC = Bureacrate.cpp main.cpp
 
 CC = c++
 

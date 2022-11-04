@@ -5,10 +5,28 @@ Bureacrate::Bureacrate(void): name("Sam Lowry"), grade(150)
 	std::cout << "Bureacrate default constructor" << std::endl;
 }
 
-Bureacrate::Bureacrate(const std::string& name, const int grade) try : name(name)
+Bureacrate::Bureacrate(const std::string& name, const int grade): name(name)
 {
-	this->grade = grade;
-	std::cout << "Bureacrate paramter constructor" << std::endl;
+	try
+	{
+		if (grade < 1){
+			this->grade = 1;
+			throw GradeTooHighException();
+		}
+		else if (grade > 150){
+			this->grade = 150;
+			throw GradeTooLowException();
+		}
+		else
+			this->grade = grade;
+	}
+	catch(GradeTooHighException& e){
+		std::cout << "Bureacrate Grade too high exception, grade set to 1" << std::endl;
+	}
+	catch(GradeTooLowException& e){
+		std::cout << "Bureacrate Grade too low exception, grade set to 150" << std::endl;
+	}
+	std::cout << "Bureacrate parameteric constructor" << std::endl;
 }
 
 Bureacrate::Bureacrate(const Bureacrate &other): name(other.name), grade(other.grade)
@@ -42,18 +60,30 @@ std::string Bureacrate::getName(void) const
 	return (name);
 }
 
-void Bureacrate::incrementGrade(void)
+void Bureacrate::incrementGrade(void) try
 {
-	--grade;
+	if (grade > 1)
+		--grade;
+	else
+		throw GradeTooHighException();
+}
+catch(GradeTooHighException& e){
+	std::cout << this->name << ": grade to high exception" << std::endl;
 }
 
-void Bureacrate::decrementGrade(void)
+void Bureacrate::decrementGrade(void) try
 {
-	++grade;
+	if (grade < 150)
+		++grade;
+	else
+		throw GradeTooLowException();
+} 
+catch (GradeTooLowException& e){
+	std::cout << this->name << ": grade to low exception" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureacrate &other)
 {
-	os << other.getName() << ", bureacrate grade " << other.getGrade() << std::endl;
+	os << other.getName() << ", bureacrate grade " << other.getGrade();
 	return os;
 }

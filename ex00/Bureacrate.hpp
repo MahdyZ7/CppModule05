@@ -28,18 +28,21 @@ class Bureacrate{
 		std::string getName(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
-		private;
+		private:
+			class GradeTooHighException : public std::exception{};
+			class GradeTooLowException : public std::exception{};
+			
 			const std::string name;
 			int grade;
 } ;
 
-class MyCustomException : public std::exception {
-    public:
-char * what () {
-        return "Custom C++ Exception";
-    }
-};
+// class MyCustomException : public std::exception {
+//     public:
+// char * what () {
+//         return "Custom C++ Exception";
+//     }
+// };
 
 std::ostream& operator<<(std::ostream& os, const Bureacrate &other);
 
-#ifndef
+#endif
