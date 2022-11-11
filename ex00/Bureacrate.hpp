@@ -29,8 +29,14 @@ class Bureacrate{
 		void incrementGrade(void);
 		void decrementGrade(void);
 		private:
-			class GradeTooHighException : public std::exception{};
-			class GradeTooLowException : public std::exception{};
+			class GradeTooHighException : public std::exception{
+				public:
+					char *what ();
+			};
+			class GradeTooLowException : public std::exception{
+				public:
+					char *what ();
+			};
 			
 			const std::string name;
 			int grade;

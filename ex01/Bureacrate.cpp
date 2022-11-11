@@ -82,6 +82,13 @@ catch (GradeTooLowException& e){
 	std::cout << this->name << ": grade to low exception" << std::endl;
 }
 
+bool Bureacrate::signForm(Form &paper)
+{
+	if (paper.beSigned(*this))
+		return (true);
+	return (false);
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureacrate &other)
 {
 	os << other.getName() << ", bureacrate grade " << other.getGrade();

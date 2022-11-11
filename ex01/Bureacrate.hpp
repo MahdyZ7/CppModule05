@@ -14,6 +14,10 @@
 #define BUREACRATE_HPP
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
+
+class Form;
+class Bureacrate;
 
 class Bureacrate{
 	public:
@@ -28,9 +32,20 @@ class Bureacrate{
 		std::string getName(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
+		bool signForm(Form &paper);
 		private:
-			class GradeTooHighException : public std::exception{};
-			class GradeTooLowException : public std::exception{};
+			class GradeTooHighException : public std::exception{
+				public:
+					const char * what () const throw (){
+						return "Bureacrate grade to high";
+					}
+			};
+			class GradeTooLowException : public std::exception{
+				public:
+					const char * what () const throw (){
+						return "Bureacrate grade to low";
+					}
+			};
 			
 			const std::string name;
 			int grade;

@@ -12,7 +12,7 @@
 
 NAME = main
 
-SRC = Bureacrate.cpp main.cpp
+SRC = Bureacrate.cpp Form.cpp main.cpp
 
 CC = c++
 
