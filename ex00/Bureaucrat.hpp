@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureacrate.hpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREACRATE_HPP
-#define BUREACRATE_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include <iostream>
 #include <stdexcept>
 
-class Bureacrate{
+class Bureaucrat{
 	public:
-		Bureacrate(void);
-		Bureacrate(const std::string &name, const int grade);
-		Bureacrate(const Bureacrate &other);
-		virtual ~Bureacrate(void);
+		Bureaucrat(void);
+		Bureaucrat(const std::string &name, const int grade);
+		Bureaucrat(const Bureaucrat &other);
+		virtual ~Bureaucrat(void);
 
-		Bureacrate &operator=(const Bureacrate &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
 		
 		int getGrade(void) const;
 		std::string getName(void) const;
@@ -49,6 +49,6 @@ class Bureacrate{
 //     }
 // };
 
-std::ostream& operator<<(std::ostream& os, const Bureacrate &other);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat &other);
 
 #endif

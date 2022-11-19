@@ -12,7 +12,7 @@
 
 NAME = main
 
-SRC = Bureacrate.cpp Form.cpp main.cpp
+SRC = Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp main.cpp 
 
 CC = c++
 

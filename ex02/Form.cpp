@@ -16,7 +16,7 @@ Form::Form(const std::string& name, const int s_grade, const int e_grade): name(
 Form::Form(const Form& other): name(other.name), is_signed(other.is_signed),
 								s_grade(other.s_grade), e_grade(other.e_grade)
 {
-	std::cout << "Form Copy Constructor " << this->s_grade << std::endl;
+	std::cout << "Form Copy Constructor " << std::endl;
 }
 
 Form::~Form(void)
@@ -35,6 +35,16 @@ Form& Form::operator=(const Form& other)
 		this->is_signed = other.is_signed;
 	}
 	return (*this);
+}
+
+const char * Form::GradeTooHighException::what() const throw()
+{
+	return "Form grade to high exception";
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+	return "Form grade to low exception";
 }
 
 std::string Form::getName(void) const
@@ -57,7 +67,12 @@ bool Form::getIsSigned(void) const
 	return is_signed;
 }
 
-bool Form::beSigned(Bureacrate &lam) try
+void Form::setIsSigned(const bool &x)
+{
+	this->is_signed = x;
+}
+
+bool Form::beSigned(const Bureaucrat &lam) try
 {
 	if (is_signed)
 	{
@@ -73,7 +88,26 @@ bool Form::beSigned(Bureacrate &lam) try
 } catch (GradeTooLowException& e)
 {
 	std::cout << lam.getName() << " couldn’t sign " << this->name << " becuase ";
-	std::cout << "grade too high for bureacrate\n";
+	std::cout << "form grade too high for bureacrate\n";
+	return false;
+}
+
+bool Form::execute(Bureaucrat const &executor) const try
+{
+	if (is_signed == false)
+	{
+		std::cout << executor.getName() << " couldn’t excute " << this->name << " becuase ";
+		std::cout << "the form is not signed\n";
+		return false;
+	}
+	if (executor.getGrade() > e_grade)
+		throw GradeTooLowException();
+	std::cout << executor.getName() << " excuted " << this->name << std::endl;
+	return true;
+} catch (GradeTooLowException& e)
+{
+	std::cout << executor.getName() << " couldn’t excute " << this->name << " becuase ";
+	std::cout << "form grade too high for bureacrate\n";
 	return false;
 }
 

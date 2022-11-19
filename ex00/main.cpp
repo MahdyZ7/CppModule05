@@ -1,11 +1,11 @@
-# include "Bureacrate.hpp"
+# include "Bureaucrat.hpp"
 
 int main()
 {
 	{
-		Bureacrate bowman;
-		Bureacrate green(bowman);
-		Bureacrate kola;
+		Bureaucrat bowman;
+		Bureaucrat green(bowman);
+		Bureaucrat kola;
 		std::cout<< kola << std::endl;
 		kola.decrementGrade();
 		std::cout<< kola << std::endl;
@@ -14,7 +14,7 @@ int main()
 	}
 	std::cout<< std::endl;
 	{
-		Bureacrate bowman("kissinger", 0);
+		Bureaucrat bowman("kissinger", 0);
 		bowman.incrementGrade();
 		std::cout<< bowman << std::endl;
 		bowman.decrementGrade();

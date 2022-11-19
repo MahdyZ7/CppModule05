@@ -12,7 +12,7 @@
 
 NAME = main
 
-SRC = Bureacrate.cpp main.cpp
+SRC = Bureaucrat.cpp main.cpp
 
 CC = c++
 

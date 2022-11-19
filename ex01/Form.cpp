@@ -16,7 +16,7 @@ Form::Form(const std::string& name, const int s_grade, const int e_grade): name(
 Form::Form(const Form& other): name(other.name), is_signed(other.is_signed),
 								s_grade(other.s_grade), e_grade(other.e_grade)
 {
-	std::cout << "Form Copy Constructor " << this->s_grade << std::endl;
+	std::cout << "Form Copy Constructor " << std::endl;
 }
 
 Form::~Form(void)
@@ -35,6 +35,16 @@ Form& Form::operator=(const Form& other)
 		this->is_signed = other.is_signed;
 	}
 	return (*this);
+}
+
+const char * Form::GradeTooHighException::what() const throw()
+{
+	return "Form grade to high exception";
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+	return "Form grade to low exception";
 }
 
 std::string Form::getName(void) const
@@ -57,7 +67,7 @@ bool Form::getIsSigned(void) const
 	return is_signed;
 }
 
-bool Form::beSigned(Bureacrate &lam) try
+bool Form::beSigned(const Bureaucrat &lam) try
 {
 	if (is_signed)
 	{
@@ -73,7 +83,7 @@ bool Form::beSigned(Bureacrate &lam) try
 } catch (GradeTooLowException& e)
 {
 	std::cout << lam.getName() << " couldn’t sign " << this->name << " becuase ";
-	std::cout << "grade too high for bureacrate\n";
+	std::cout << "form grade too high for bureaucrat\n";
 	return false;
 }
 

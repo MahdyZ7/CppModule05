@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureacrate.hpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,47 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREACRATE_HPP
-#define BUREACRATE_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include <iostream>
 #include <stdexcept>
 #include "Form.hpp"
 
 class Form;
-class Bureacrate;
+class Bureaucrat;
 
-class Bureacrate{
+class Bureaucrat{
 	public:
-		Bureacrate(void);
-		Bureacrate(const std::string &name, const int grade);
-		Bureacrate(const Bureacrate &other);
-		virtual ~Bureacrate(void);
+		Bureaucrat(void);
+		Bureaucrat(const std::string &name, const int grade);
+		Bureaucrat(const Bureaucrat &other);
+		virtual ~Bureaucrat(void);
 
-		Bureacrate &operator=(const Bureacrate &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
 		
 		int getGrade(void) const;
 		std::string getName(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);
-		bool signForm(Form &paper);
+		bool signForm(Form &paper) const;
 		private:
 			class GradeTooHighException : public std::exception{
 				public:
-					const char * what () const throw (){
-						return "Bureacrate grade to high";
-					}
+					const char * what () const throw ();
 			};
 			class GradeTooLowException : public std::exception{
 				public:
-					const char * what () const throw (){
-						return "Bureacrate grade to low";
-					}
+					const char * what () const throw ();
 			};
 			
 			const std::string name;
 			int grade;
 } ;
 
-std::ostream& operator<<(std::ostream& os, const Bureacrate &other);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat &other);
 
 #endif
