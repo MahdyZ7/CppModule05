@@ -53,12 +53,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw ()
 {
-	return "Bureaucrat grade to high exception";
+	return "Bureaucrat grade too high exception";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw ()
 {
-	return "Bureaucrat grade to low exception";
+	return "Bureaucrat grade too low exception";
 }
 
 int Bureaucrat::getGrade(void) const
@@ -79,7 +79,7 @@ void Bureaucrat::incrementGrade(void) try
 		throw GradeTooHighException();
 }
 catch(GradeTooHighException& e){
-	std::cout << this->name << ": grade to high exception" << std::endl;
+	std::cout << this->name << ": grade too high exception" << std::endl;
 }
 
 void Bureaucrat::decrementGrade(void) try
@@ -90,7 +90,7 @@ void Bureaucrat::decrementGrade(void) try
 		throw GradeTooLowException();
 } 
 catch (GradeTooLowException& e){
-	std::cout << this->name << ": grade to low exception" << std::endl;
+	std::cout << this->name << ": grade too low exception" << std::endl;
 }
 
 bool Bureaucrat::signForm(Form &paper) const

@@ -68,7 +68,7 @@ void Bureaucrat::incrementGrade(void) try
 		throw GradeTooHighException();
 }
 catch(GradeTooHighException& e){
-	std::cout << this->name << ": grade to high exception" << std::endl;
+	std::cout << this->name << ": grade too high exception" << std::endl;
 }
 
 void Bureaucrat::decrementGrade(void) try
@@ -79,7 +79,7 @@ void Bureaucrat::decrementGrade(void) try
 		throw GradeTooLowException();
 } 
 catch (GradeTooLowException& e){
-	std::cout << this->name << ": grade to low exception" << std::endl;
+	std::cout << this->name << ": grade too low exception" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat &other)

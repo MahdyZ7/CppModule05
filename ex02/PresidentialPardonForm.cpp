@@ -6,6 +6,12 @@ PresidentialPardonForm::PresidentialPardonForm(void):
 	std::cout << "Presidential Pardon Form defaut constructor" << std::endl;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(const std::string target):
+	Form("Presidential Pardon Form", 25, 5, target)
+{
+	std::cout << "Presidential Pardon Form Target constructor" << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other):
 	Form(other)
 {
@@ -19,9 +25,17 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
-	this->setIsSigned(other.getIsSigned());
-	std::cout << "Presidential Pardon Form operator copy constructor" << std::endl;
+	std::cout << "Presidential Pardon Form Assignment Operator" << std::endl;
+	Form::operator=(other);
 	return *this;
+}
+
+bool PresidentialPardonForm::execute(const Bureaucrat &executor) const
+{
+	if (Form::execute(executor) == false)
+		return false;
+	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	return true;
 }
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm &other)
@@ -29,11 +43,11 @@ std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm &other)
 	os << "The form " << other.getName();
 
 	if (other.getIsSigned())
-		os << " is signed, it can be excuted by a level " << other.getEGrade() << " bureacrate";
+		os << " is signed, it can be excuted by a level " << other.getEGrade() << " bureaucrat";
 	else
 	{
-		os << " is not signed, it requires a level " << other.getSGrade() << " bureacrate to sign it";
-		os << " and a level " << other.getEGrade() << " bureacrate to excute it";
+		os << " is not signed, it requires a level " << other.getSGrade() << " bureaucrat to sign it";
+		os << " and a level " << other.getEGrade() << " bureaucrat to excute it";
 	}
 	return os;
 }

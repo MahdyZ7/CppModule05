@@ -11,6 +11,8 @@ class Form{
 	public:
 		Form(void);
 		Form(const std::string& name, const int s_grade, const int e_grade);
+		Form(const std::string& name, const int s_grade, const int e_grade, 
+			const std::string& target);
 		Form(Form const &other);
 		virtual ~Form(void) = 0;
 
@@ -21,9 +23,9 @@ class Form{
 		int			getSGrade(void) const;
 		int			getEGrade(void) const;
 		bool		beSigned(const Bureaucrat &lam);
-		bool		execute(Bureaucrat const &executor) const;
+		virtual bool		execute(Bureaucrat const &executor) const;
 	protected:
-		void setIsSigned(const bool &x);
+		std::string getTarget(void) const;
 
 	private:
 		class GradeTooHighException : public std::exception{
@@ -38,6 +40,7 @@ class Form{
 		bool is_signed;
 		const int s_grade;
 		const int e_grade;
+		const std::string target;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form &other);
