@@ -40,11 +40,32 @@ int main()
 		form.beSigned(man);
 		form2 = form;
 		int count = 0;
-		for (int i = 0; i < 10000; i++){
+		for (int i = 0; i < 200; i++){
 			if(form2.execute(sam))
 				++count;
 		}
 		std::cout << count << std::endl;
+		form2.execute(man);
+		std::cout << "\033[0m";
+	}
+	catch (const std::exception& e){
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "------Shrubbery Creation Form operation------" << std::endl;
+	try
+	{
+		ShrubberyCreationForm form("Garden");
+		ShrubberyCreationForm form2;
+		Bureaucrat man("Zoma", 5);
+		Bureaucrat sam("Ford", 124);
+		std::cout << "\033[0;35m";
+		std::cout << form2 << std::endl;
+		std::cout << sam << std::endl;
+		std::cout << form << std::endl;
+		form.beSigned(man);
+		form2 = form;
+		form2.execute(sam);
 		form2.execute(man);
 		std::cout << "\033[0m";
 	}
