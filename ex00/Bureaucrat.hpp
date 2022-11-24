@@ -31,11 +31,11 @@ class Bureaucrat{
 		private:
 			class GradeTooHighException : public std::exception{
 				public:
-					char *what ();
+					const char * what () const throw ();
 			};
 			class GradeTooLowException : public std::exception{
 				public:
-					char *what ();
+					const char * what () const throw ();
 			};
 			
 			const std::string name;
