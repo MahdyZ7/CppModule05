@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/24 12:44:45 by ayassin           #+#    #+#             */
+/*   Updated: 2022/11/24 13:00:17 by ayassin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM_HPP
 # define FORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-// class Form;
-// class Bureacrate;
+class Bureaucrat;
 
 class Form{
 	public:

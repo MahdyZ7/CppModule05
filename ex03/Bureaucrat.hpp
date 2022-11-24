@@ -6,7 +6,7 @@
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 09:21:30 by ayassin           #+#    #+#             */
-/*   Updated: 2022/10/27 10:48:08 by ayassin          ###   ########.fr       */
+/*   Updated: 2022/11/24 12:51:14 by ayassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 #define BUREAUCRAT_HPP
 #include <iostream>
 #include <stdexcept>
-// #include "Form.hpp"
 
 class Form;
-// class Bureaucrat;
 
 class Bureaucrat{
 	public:

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/24 12:51:33 by ayassin           #+#    #+#             */
+/*   Updated: 2022/11/24 12:56:29 by ayassin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
@@ -21,6 +33,4 @@ class Intern{
 		Form *creatRRF(const std::string &target_name);
 
 };
-
-std::ostream& operator<<(std::ostream& os, const Intern &other);
 #endif

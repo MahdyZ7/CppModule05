@@ -6,7 +6,7 @@
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 09:21:30 by ayassin           #+#    #+#             */
-/*   Updated: 2022/10/27 10:48:08 by ayassin          ###   ########.fr       */
+/*   Updated: 2022/11/24 12:52:36 by ayassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,6 @@ class Bureaucrat{
 			const std::string name;
 			int grade;
 } ;
-
-// class MyCustomException : public std::exception {
-//     public:
-// char * what () {
-//         return "Custom C++ Exception";
-//     }
-// };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat &other);
 

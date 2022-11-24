@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/24 12:51:31 by ayassin           #+#    #+#             */
+/*   Updated: 2022/11/24 12:55:51 by ayassin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Intern.hpp"
 
 typedef Form *(Intern::*ptr)(std::string);
@@ -42,8 +54,6 @@ Form *Intern::creatRRF(const std::string &target_name)
 
 Form *Intern::makeForm(const std::string &form_name, const std::string &target_name)
 {
-	// ptr = {
-	// 	&ShrubberyCreationForm(target_name), &RobotomyRequestForm(target_name), &PresidentialPardonForm(target_name)};
 	Form *(Intern::*compl_fun[])(const std::string&) = 
 		{&Intern::creatPPF, &Intern::creatSCF, &Intern::creatRRF};
 	std::string comp_index[3] = 
