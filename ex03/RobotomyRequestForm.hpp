@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 12:51:50 by ayassin           #+#    #+#             */
-/*   Updated: 2022/11/24 12:51:51 by ayassin          ###   ########.fr       */
+/*   Created: 2022/11/24 12:47:15 by ayassin           #+#    #+#             */
+/*   Updated: 2022/11/24 12:47:22 by ayassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm: public Form{
+class RobotomyRequestForm: public AForm{
 	public:
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(const std::string &target);

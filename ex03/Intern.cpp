@@ -12,7 +12,7 @@
 
 # include "Intern.hpp"
 
-typedef Form *(Intern::*ptr)(std::string);
+typedef AForm *(Intern::*ptr)(std::string);
 
 Intern::Intern(void)
 {
@@ -37,31 +37,33 @@ Intern &Intern::operator=(Intern const &other)
 	return *this;
 }
 
-Form *Intern::creatPPF(const std::string &target_name)
+AForm *Intern::creatPPF(const std::string &target_name)
 {
 	return (new PresidentialPardonForm(target_name));
 }
 
-Form *Intern::creatSCF(const std::string &target_name)
+AForm *Intern::creatSCF(const std::string &target_name)
 {
 	return (new ShrubberyCreationForm(target_name));
 }
 
-Form *Intern::creatRRF(const std::string &target_name)
+AForm *Intern::creatRRF(const std::string &target_name)
 {
 	return (new RobotomyRequestForm(target_name));
 }
 
-Form *Intern::makeForm(const std::string &form_name, const std::string &target_name)
+AForm *Intern::makeForm(const std::string &form_name, const std::string &target_name)
 {
-	Form *(Intern::*compl_fun[])(const std::string&) = 
+	AForm *(Intern::*compl_fun[])(const std::string&) = 
 		{&Intern::creatPPF, &Intern::creatSCF, &Intern::creatRRF};
 	std::string comp_index[3] = 
 		{"PresidentialPardonForm" , "ShrubberyCreationForm", "RobotomyRequestForm"};
 	for (int i = 0; i < 3; ++i)
-		if (form_name == comp_index[i])
+		if (form_name == comp_index[i]){
+			std::cout << "Intern creates" << comp_index[i] << std::endl;
 			return ((this->*(compl_fun[i]))(target_name));
-	std::cout << "The Form Requested does not exist *Bloody Paperwork*\n";
+		}
+	std::cout << "The AForm Requested does not exist *Bloody Paperwork*\n";
 	throw std::exception();
 	return (NULL);
 }

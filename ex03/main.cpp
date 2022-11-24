@@ -19,7 +19,7 @@
 int main()
 {
 	std::cout << "------Intern with an attitude--------\n";
-	Form *ppf = NULL, *bonkers = NULL;
+	AForm *ppf = NULL, *bonkers = NULL;
 	try{
 		Intern heba;
 		Bureaucrat Khan("Khan", 25);

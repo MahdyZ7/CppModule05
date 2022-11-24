@@ -75,8 +75,8 @@ int main()
 		std::cout << form2 << std::endl;
 		std::cout << sam << std::endl;
 		std::cout << form << std::endl;
-		form.beSigned(man);
-		form2 = form;
+		form2.beSigned(man);
+		// form2 = form;
 		form2.execute(sam);
 		form2.execute(man);
 		std::cout << "\033[0m";

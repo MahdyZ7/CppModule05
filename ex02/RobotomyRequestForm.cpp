@@ -13,19 +13,19 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(void):
-	Form("Robotomy Request Form", 72, 45)
+	AForm("Robotomy Request Form", 72, 45, "NULL_HELL")
 {
 	std::cout << "Robotomy Request Form Default Constructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target):
-	Form("Robotomy Request Form", 72, 45, target)
+	AForm("Robotomy Request Form", 72, 45, target)
 {
 	std::cout << "Robotomy Request Form Target Constructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other):
-	Form(other)
+	AForm(other)
 {
 	std::cout << "Robotomy Request Form Copy Constructor" << std::endl;
 }
@@ -38,7 +38,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
 	std::cout << "Robotomy Request Form Assignment Operator" << std::endl;
-	Form::operator=(other);
+	AForm::operator=(other);
 	return *this;
 }
 
@@ -46,9 +46,9 @@ bool RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	
 	if (this->getIsSigned() == false || this->getEGrade() < executor.getGrade())
-		return(Form::execute(executor));
+		return(AForm::execute(executor));
 
-	Form::execute(executor);
+	AForm::execute(executor);
 	std::cout << "\a\a WERRR... \a\a WERR..\n";
 	if (std::rand()&1)
 	{

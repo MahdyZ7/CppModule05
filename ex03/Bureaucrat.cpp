@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 12:50:50 by ayassin           #+#    #+#             */
-/*   Updated: 2022/11/24 12:50:51 by ayassin          ###   ########.fr       */
+/*   Created: 2022/11/24 12:44:10 by ayassin           #+#    #+#             */
+/*   Updated: 2022/11/24 12:44:11 by ayassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void): name("Sam Lowry"), grade(150)
 {
@@ -105,14 +104,14 @@ catch (GradeTooLowException& e){
 	std::cout << this->name << ": grade too low exception" << std::endl;
 }
 
-bool Bureaucrat::signForm(Form &paper) const
+bool Bureaucrat::signForm(AForm &paper) const
 {
 	if (paper.beSigned(*this))
 		return (true);
 	return (false);
 }
 
-bool Bureaucrat::executeForm(const Form &paper) const
+bool Bureaucrat::executeForm(const AForm &paper) const
 {
 	if (paper.execute(*this))
 		return (true);

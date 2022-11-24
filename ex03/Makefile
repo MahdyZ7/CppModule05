@@ -12,7 +12,7 @@
 
 NAME = main
 
-SRC = Bureaucrat.cpp Form.cpp main.cpp Intern.cpp\
+SRC = Bureaucrat.cpp AForm.cpp main.cpp Intern.cpp\
 		PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 CC = c++

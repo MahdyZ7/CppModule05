@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form{
+class AForm{
 	public:
-		Form(void);
-		Form(const std::string& name, const int s_grade, const int e_grade);
-		Form(const std::string& name, const int s_grade, const int e_grade, 
+		AForm(void);
+		AForm(const std::string& name, const int s_grade, const int e_grade);
+		AForm(const std::string& name, const int s_grade, const int e_grade, 
 			const std::string& target);
-		Form(Form const &other);
-		virtual ~Form(void) = 0;
+		AForm(AForm const &other);
+		virtual ~AForm(void) = 0;
 
-		Form &operator=(Form const &other);
+		AForm &operator=(AForm const &other);
 
 		std::string	getName(void) const;
 		bool		getIsSigned(void) const;
@@ -54,7 +54,7 @@ class Form{
 		const std::string target;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form &other);
+std::ostream& operator<<(std::ostream& os, const AForm &other);
 
 
 #endif

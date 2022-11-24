@@ -15,10 +15,10 @@
 
 #include <iostream>
 #include "fstream"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
-class ShrubberyCreationForm: public Form{
+class ShrubberyCreationForm: public AForm{
 	public:
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const std::string &target);

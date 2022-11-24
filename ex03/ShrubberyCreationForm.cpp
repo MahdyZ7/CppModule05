@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayassin <ayassin@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 12:51:53 by ayassin           #+#    #+#             */
-/*   Updated: 2022/11/24 12:51:54 by ayassin          ###   ########.fr       */
+/*   Created: 2022/11/24 12:47:23 by ayassin           #+#    #+#             */
+/*   Updated: 2022/11/24 12:47:24 by ayassin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void):
-	Form("Chrubbery Creation Form", 145, 137)
+	AForm("Chrubbery Creation Form", 145, 137, "NULL_HELL")
 {
 	std::cout << "Chrubbery Creation Form defaut constructor" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target):
-	Form("Chrubbery Creation Form", 145, 137, target)
+	AForm("Chrubbery Creation Form", 145, 137, target)
 {
 	std::cout << "Chrubbery Creation Form Target constructor" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):
-	Form(other)
+	AForm(other)
 {
 	std::cout << "Chrubbery Creation Form copy constructor" << std::endl;
 }
@@ -38,14 +38,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
 	std::cout << "Chrubbery Creation Form Assignment Operator" << std::endl;
-	Form::operator=(other);
+	AForm::operator=(other);
 	return *this;
 }
 
 bool ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {	
 	if (this->getIsSigned() == false || this->getEGrade() < executor.getGrade())
-		return(Form::execute(executor));
+		return(AForm::execute(executor));
 	std::ofstream 	fout;
 	std::string		outfile = this->getTarget() + "_shrubbery";
 	fout.open(outfile.c_str());
@@ -56,7 +56,7 @@ bool ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	}
 	fout << SHRUBTREE;
 	fout.close();
-	return(Form::execute(executor));
+	return(AForm::execute(executor));
 }
 
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm &other)
