@@ -54,11 +54,12 @@ AForm *Intern::creatRRF(const std::string &target_name)
 
 AForm *Intern::makeForm(const std::string &form_name, const std::string &target_name)
 {
-	AForm *(Intern::*compl_fun[])(const std::string&) = 
+	const int len = 3;
+	AForm *(Intern::*compl_fun[len])(const std::string&) = 
 		{&Intern::creatPPF, &Intern::creatSCF, &Intern::creatRRF};
-	std::string comp_index[3] = 
-		{"PresidentialPardonForm" , "ShrubberyCreationForm", "RobotomyRequestForm"};
-	for (int i = 0; i < 3; ++i)
+	std::string comp_index[len] = 
+		{"presidential pardon" , "shrubbery creation", "robotomy request"};
+	for (int i = 0; i < len; ++i)
 		if (form_name == comp_index[i]){
 			std::cout << "Intern creates" << comp_index[i] << std::endl;
 			return ((this->*(compl_fun[i]))(target_name));

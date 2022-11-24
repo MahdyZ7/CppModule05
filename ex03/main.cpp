@@ -25,26 +25,25 @@ int main()
 		Bureaucrat Khan("Khan", 25);
 		Bureaucrat amina("amina", 1);
 		std::cout << "\033[0;35m";
-		ppf = heba.makeForm("PresidentialPardonForm", "wasiq");
-		bonkers = heba.makeForm("DinnerOutForm", "wasiq");
+		ppf = heba.makeForm("presidential pardon", "wasiq");
+		bonkers = heba.makeForm("Dinner out", "wasiq");
 		amina.executeForm(*bonkers);
 		amina.executeForm(*ppf);
-		delete ppf;
-		delete bonkers;
 		std::cout << "\033[0m";
 	}catch (const std::exception& e){
 		std::cout << "\033[0m";
-		delete ppf;
-		delete bonkers;
 		std::cout << e.what() << ": You messed up"<< std::endl;
 	}
+	delete ppf;
+	delete bonkers;
+	ppf = NULL;
 	std::cout << "\n------Intern check--------\n";
 	try{
 		Intern heba;
 		Bureaucrat Khan("Khan", 25);
 		Bureaucrat amina("amina", 1);
 		std::cout << "\033[0;35m";
-		ppf = heba.makeForm("PresidentialPardonForm", "wasiq");
+		ppf = heba.makeForm("presidential pardon", "wasiq");
 		amina.executeForm(*ppf);
 		amina.signForm(*ppf);
 		amina.executeForm(*ppf);
